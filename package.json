@@ -1,0 +1,23 @@
+{
+  "name": "sociomata-static",
+  "version": "1.0.0",
+  "description": "Landing page and other static pages for Sociomata",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/btofficiel/sociomata-static.git"
+  },
+  "author": "Bhaskar Thakur",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/btofficiel/sociomata-static/issues"
+  },
+  "homepage": "https://github.com/btofficiel/sociomata-static#readme",
+  "dependencies": {
+    "@hapi/hapi": "^20.0.3"
+  }
+}
