@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/ubuntu/cicd
+cd /home/ubuntu/static
 npm install

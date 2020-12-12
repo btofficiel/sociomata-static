@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /home/ubuntu/cicd
+    destination: /home/ubuntu/static
 hooks:
   BeforeInstall:
     - location: scripts/before.sh

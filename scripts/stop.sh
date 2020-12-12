@@ -1,1 +1,1 @@
-sudo pm2 stop cicd
+sudo pm2 stop static

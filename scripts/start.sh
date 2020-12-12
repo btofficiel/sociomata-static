@@ -1,3 +1,3 @@
-sudo pm2 stop cicd
+sudo pm2 stop static
 # actually start the server
-sudo pm2 start /home/ubuntu/cicd/index.js --name "cicd"
+sudo pm2 start /home/ubuntu/static/index.js --name "static"
