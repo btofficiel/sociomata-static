@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap');
+
+body {
+    margin: 0;
+}
+
+div.message {
+    display: grid;
+    background: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    font-family: 'Work Sans', sans-serif;
+    color: white;
+    align-items: center;
+    height: 1.25rem;
+    grid-template-columns: 1fr auto 1fr;
+    transition: background 1s;
+}
+
+div.message > span {
+    grid-column: 2/3;
+}
+
+div.grid {
+    display: grid;
+    height: 80vh;
+    grid-template-columns: 1fr 350px 1fr;
+    grid-template-rows: 1fr auto 1fr;
+    font-family: 'Quicksand', sans-serif;
+}
+
+div.login-wrapper {
+    grid-column: 2/3;
+    grid-row: 2/3;
+}
+
+span.logo-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+img.logo {
+    width: 60px;
+}
+
+h2 {
+    text-align: center;
+}
+
+span.links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.8rem;
+}
+
+a {
+    color: #4f314f;
+    text-decoration: none;
+}
+
+
+form {
+    display: block;
+}
+
+input {
+    font-family: 'Work Sans', sans-serif;
+    box-sizing: border-box;
+    font-weight: 500;
+    width: 100%;
+    padding: 15px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    outline: none;
+    border: 2px solid #0f0f0f;
+    margin-bottom: 20px;
+}
+
+button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    padding: 15px;
+    background-color: #0f0f0f;
+    color: white;
+    border-radius: 5px;
+    width: 100%;
+    border: none;
+}
+
+button:hover {
+    box-shadow:0px 0px 0px 2px black inset;
+    background-color: yellow;
+    color: #0f0f0f;
+    cursor: pointer;
+}
+
+
