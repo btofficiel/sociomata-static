@@ -37,6 +37,13 @@ const init = async () => {
     },
     {
         method: 'GET',
+        path: '/robots.txt',
+        handler: async (request, h) => {
+            return h.file('robots.txt');
+        }
+    },
+    {
+        method: 'GET',
         path: '/images/{param*}',
         handler: {
             directory: {
