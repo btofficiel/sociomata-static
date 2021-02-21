@@ -4,8 +4,8 @@ files:
   - source: /
     destination: /home/ubuntu/static
 hooks:
-  BeforeInstall:
-    - location: scripts/before.sh
+  AfterInstall:
+    - location: scripts/after.sh
       timeout: 300
       runas: root
   ApplicationStart:
