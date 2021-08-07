@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="/images/favicon.ico" />
+    <link href="/css/dots.css" rel="stylesheet"/>
+    <link href="/css/style.css" rel="stylesheet"/>
+  </head>
+  <body>
+    <div id="elm-app-is-loaded-here"></div>
+    
+    <script src="<%= root %>/js/elm.min.js"></script>
+    <script>
+      let token = window.localStorage.getItem('__token__');
+      var app = Elm.Main.init({
+        node: document.getElementById("elm-app-is-loaded-here"),
+        flags: token
+      });      
+
+      function textAreaResize(ta) {
+        ta.style.height = "auto";
+        ta.style.height = ta.scrollHeight+"px";
+      }
+
+      function resetTextAreaSize(ta) {
+        ta.style.height = "1px";
+        ta.style.height = "5rem";
+      }
+
+      let postMenuId = "";
+      let settingsIconId = "";
+
+
+      app.ports.deleteToken.subscribe(function(){
+         window.localStorage.removeItem('__token__');
+      });
+
+      app.ports.resizeTextArea.subscribe(function(textAreaId) {
+        var ta = document.getElementById(textAreaId);
+        textAreaResize(ta);
+      });
+
+      app.ports.resetTextArea.subscribe(function(textAreaId) {
+        var ta = document.getElementById(textAreaId);
+        resetTextAreaSize(ta);
+      });
+
+      app.ports.setToggledPostIds.subscribe(function(postId) {
+        settingsIconId = `settingsIcon${postId}`;
+        postMenuId = `postMenu${postId}`;
+      });
+
+      document.addEventListener('click', function(event) {
+          var menuElement = document.getElementById("menu");
+          var avatarElement = document.getElementById("user-avatar");
+          var isClickInsideMenu = (menuElement.contains(event.target) && event.target != menuElement); 
+          var isClickInsideAvatar = avatarElement.contains(event.target);
+
+          if (isClickInsideMenu === false) {
+              if(isClickInsideAvatar === false) {
+                app.ports.turnOffMenu.send(null);
+              }
+          }
+
+      });
+
+      document.addEventListener('click', function(event) {
+          var postElement = document.getElementById(postMenuId);
+          var iconElement = document.getElementById(settingsIconId);
+
+          if(postElement && iconElement) {
+            var isClickInsideMenu = (postElement.contains(event.target) && event.target != postElement); 
+            var isClickInsideIcon = iconElement.contains(event.target);
+
+            if (isClickInsideMenu === false) {
+                if(isClickInsideIcon === false) {
+                  app.ports.turnOffPostMenu.send(null);
+                  postMenuId = "";
+                  iconElement = "";
+                }
+            }
+          }
+
+      });
+
+    </script>
+  </body>
+</html>

@@ -1,4 +1,7 @@
 'use strict';
+const path = require('path');
+
+require('dotenv').config({ path: path.join(__dirname, '.env') });
 
 const Hapi = require('@hapi/hapi');
 const Path = require('path');
@@ -17,6 +20,12 @@ const init = async () => {
         }
     });
 
+    let rootUrl = {
+        "staging": "https://d140afm9bvkdb9.cloudfront.net",
+        "dev": "",
+        "prod": ""
+    };
+
     await server.register(Vision);
     await server.register(Inert);
 
@@ -33,6 +42,13 @@ const init = async () => {
         handler: (request, h) => {
 
             return 'Sociomata Homepage';
+        }
+    },
+    {
+        method: 'GET',
+        path: '/app/{param*}',
+        handler: (request, h) => {
+            return h.view('app', { root: rootUrl[process.env.ENV] });
         }
     },
     {
@@ -83,7 +99,7 @@ const init = async () => {
         method: 'GET',
         path: '/signup',
         handler: (request, h) => {
-            return h.view('signup');
+            return h.view('signup'); 
         }
     },
 

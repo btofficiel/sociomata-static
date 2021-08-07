@@ -1,18 +1,9 @@
-function resetError() {
-    document.getElementById("message").style.background = "white";
-    document.getElementById("message").innerHTML = ``;
-}
-
-function setError(message) {
-    document.getElementById("message").style.background = "red";
-    document.getElementById("message").innerHTML = `<span>${message}</span>`;
-}
-
-signupForm.onsubmit = async (e) => {
+const onFormSubmit = async (e) => {
     try {
         e.preventDefault();
 
         resetError();
+        setLoading();
 
         let formData = new FormData(signupForm);
         let body = {};
@@ -40,9 +31,38 @@ signupForm.onsubmit = async (e) => {
             }
             else {
                 setError(result.message);
+                setTimeout(resetError, 3000);
             }
         }
     } catch(e) {
         setError("Some error occurred on the server");
     }
 }
+
+function setLoading() {
+    document.getElementById("message").className = "message loading";
+    let dots = `
+        <span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+        </span>
+    `;
+    document.getElementById("message").innerHTML = dots;
+}
+
+function resetError() {
+    document.getElementById("message").className = "message nothing";
+    document.getElementById("message").innerHTML = ``;
+}
+
+function setError(message) {
+    document.getElementById("message").className ="message error";
+    document.getElementById("message").innerHTML = `<span>${message}</span>`;
+}
+
+
+window.addEventListener('submit', (e) => onFormSubmit(e));

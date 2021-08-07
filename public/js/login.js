@@ -1,25 +1,9 @@
-function init() {
-    let token = localStorage.getItem('__token__');
-    if(token) {
-        window.location.replace('/app');
-    }
-}
-
-function resetError() {
-    document.getElementById("message").style.background = "white";
-    document.getElementById("message").innerHTML = ``;
-}
-
-function setError(message) {
-    document.getElementById("message").style.background = "red";
-    document.getElementById("message").innerHTML = `<span>${message}</span>`;
-}
-
-loginForm.onsubmit = async (e) => {
+const onFormSubmit = async (e) => {
     try {
         e.preventDefault();
 
         resetError();
+        setLoading();
 
         let formData = new FormData(loginForm);
         let body = {};
@@ -47,11 +31,70 @@ loginForm.onsubmit = async (e) => {
             }
             else {
                 setError(result.message);
+                setTimeout(resetError, 3000);
             }
         }
     } catch(e) {
         setError("Some error occurred on the server");
     }
 }
+
+function init() {
+    let token = localStorage.getItem('__token__');
+    if(token) {
+        window.location.replace('/app');
+    }
+
+    else {
+        var loginForm = `
+            <span class='logo-wrapper'>
+                <img class='logo' src='/images/logo-small.png'/>
+            </span>
+            <h2>Sign in to Sociomata</h2>
+            <form id="loginForm">
+                <input placeholder="Email" name="email" type="email"/>
+                <input placeholder="Password" name="password" type="password"/>
+                <button type="submit">Sign in</button>
+            </form>
+            <script src="/js/login.js"></script>
+            <!---
+            <span class="links">
+                <a>Forgot password?</a>
+            </span>
+            --->
+        `;
+
+        document.getElementById("content").innerHTML = loginForm;
+
+        window.addEventListener('submit', (e) => onFormSubmit(e));
+    }
+        
+}
+
+function setLoading() {
+    document.getElementById("message").className = "message loading";
+    let dots = `
+        <span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+            <span class="dot-flashing"></span>
+        </span>
+    `;
+    document.getElementById("message").innerHTML = dots;
+}
+
+function resetError() {
+    document.getElementById("message").className = "message nothing";
+    document.getElementById("message").innerHTML = ``;
+}
+
+function setError(message) {
+    document.getElementById("message").className ="message error";
+    document.getElementById("message").innerHTML = `<span>${message}</span>`;
+}
+
 
 window.addEventListener("load", init);

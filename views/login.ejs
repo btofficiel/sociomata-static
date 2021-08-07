@@ -3,6 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="shortcut icon" href="/images/favicon.ico" />
+        <link rel="stylesheet" href="/css/dots.css"/>
         <link rel="stylesheet" href="/css/login-style.css"/>
         <title>Sign in to Sociomata</title>
     </head>
@@ -10,21 +11,12 @@
         <div class="message" id="message">
         </div>
         <div class='grid'>
-            <div class='login-wrapper'>
-                <span class='logo-wrapper'>
-                    <img class='logo' src='/images/logo-small.png'/>
-                </span>
-                <h2>Sign in to Sociomata</h2>
-                <form id="loginForm">
-                    <input placeholder="Email" name="email" type="email"/>
-                    <input placeholder="Password" name="password" type="password"/>
-                    <button type="submit">Sign in</button>
-                </form>
-                <script src="/js/login.min.js"></script>
-                <span class="links">
-                    <a>Forgot password?</a>
-                </span>
+            <div id="content" class='login-wrapper'>
+                <div class="progress-bar">
+                    <div class="progress-bar-value" />
+                </div>
             </div>
+            <script src="/js/login.min.js"></script>
         </div>
     </body>
 </html>
