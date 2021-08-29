@@ -81,6 +81,7 @@ div.editor > textarea {
     overflow: hidden;
     box-sizing: border-box;
     min-height: 5rem;
+    font-size: 0.9rem;
     font-family: 'Work Sans', sans-serif;
     background-color: rgba(0, 0, 0, 0);
 }
@@ -97,7 +98,7 @@ div.editor:focus-within {
   background-color: #f4f4f4;
 }
 
-div.editor:hover img.close {
+div.editor:hover > img.close {
   display: block;
 }
 
@@ -124,10 +125,57 @@ textarea::nth-letter(3) {
     padding: 1.5rem;
 }
 
+.twitter-images {
+  display: grid;
+  justify-content: start;
+  grid-gap: 0.5rem;
+  padding-bottom: 0.75rem;
+  padding-left: 0.25rem;
+  grid-template-columns: repeat(4, auto);
+}
+
+.twitter-img-container {
+  position: relative;
+  width: 7rem;
+  border-radius: 0.25rem;
+  border-color: rgba(128,128,128, 0.25);
+  border-style: solid;
+  border-width: 0.5px;
+}
+
+
+.twitter-img-container > .twitter-media {
+  display: block;
+  opacity: 0.5;
+  width: 7rem;
+  height: 7rem;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+
+.twitter-img-container:hover img.close {
+  display: block;
+}
+
 .post-settings {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
   font-family: 'Work Sans', sans-serif;
+}
+
+.post-ctas {
+  padding-left: 0.25rem;
+  grid-column: 1/2;
+}
+
+.post-ctas > img {
+  width: 1.5rem;
+  opacity: 0.25; 
+  cursor: pointer;
+}
+
+.post-ctas > img:hover {
+  opacity: 1;
 }
 
 .twitter-counter {
@@ -135,7 +183,7 @@ textarea::nth-letter(3) {
   color: gray;
   font-size: 0.9rem;
   align-items: center;
-  grid-column: 2/3;
+  grid-column: 3/4;
   padding-right: 0.25rem;
   grid-gap: 0.5rem;
   grid-template-columns: auto auto;
