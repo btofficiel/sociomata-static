@@ -48,7 +48,10 @@ const init = async () => {
         method: 'GET',
         path: '/app/{param*}',
         handler: (request, h) => {
-            return h.view('app', { root: rootUrl[process.env.ENV] });
+            return h.view('app', { 
+                root: rootUrl[process.env.ENV],
+                filename: process.env.BUNDLE_NAME
+            });
         }
     },
     {
