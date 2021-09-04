@@ -40,8 +40,7 @@ const init = async () => {
         method: 'GET',
         path: '/',
         handler: (request, h) => {
-
-            return 'Sociomata Homepage';
+            return h.view('index');
         }
     },
     {
