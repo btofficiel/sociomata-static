@@ -204,6 +204,6 @@ div.mobile-header {
 
     div.subcontent { width: 100%; }
 
-    div.cta { width: 100%; }
+    div.cta { width: inherit; }
 
 }
