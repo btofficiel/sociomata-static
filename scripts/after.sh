@@ -10,5 +10,8 @@ then
     echo BUNDLE_NAME=$(aws s3api list-objects-v2  --bucket "sociomata-staging-static" --prefix "js/elm" --query Contents[0].Key) >> .env
     echo "Environment variables added successfully"
 else
-    echo "Production not setup yet"
+    echo ENV=prod >> .env
+    sleep 30s
+    echo BUNDLE_NAME=$(aws s3api list-objects-v2  --bucket "sociomata-prod-static" --prefix "js/elm" --query Contents[0].Key) >> .env
+    echo "Environment variables added successfully"
 fi

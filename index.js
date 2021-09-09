@@ -23,7 +23,7 @@ const init = async () => {
     let rootUrl = {
         "staging": "https://d140afm9bvkdb9.cloudfront.net",
         "dev": "",
-        "prod": ""
+        "prod": "https://dicpcx7medw71.cloudfront.net"
     };
 
     await server.register(Vision);
