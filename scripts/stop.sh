@@ -1,1 +1,1 @@
-sudo pm2 delete static
+sudo pm2 delete static --silent
