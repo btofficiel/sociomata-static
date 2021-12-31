@@ -49,6 +49,10 @@ const init = async () => {
         handler: (request, h) => {
             return h.view('app', { 
                 root: rootUrl[process.env.ENV],
+                priceIds: {
+                    indiaAnnual: process.env.INDIA_PRICEID,
+                    globalAnnual: process.env.GLOBAL_PRICEID
+                },
                 filename: process.env.BUNDLE_NAME
             });
         }
@@ -95,6 +99,20 @@ const init = async () => {
         path: '/login',
         handler: async (request, h) => {
             return h.view('login');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/success',
+        handler: async (request, h) => {
+            return h.response({status: "Success"});
+        }
+    },
+    {
+        method: 'GET',
+        path: '/error',
+        handler: async (request, h) => {
+            return h.response({status: "Fail"});
         }
     },
     {

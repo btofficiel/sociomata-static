@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <title>Checkout</title>
+  </head>
+  <body>
+    <form action="/api/create-checkout-session" method="POST">
+      <!-- Note: If using PHP set the action to /create-checkout-session.php -->
+
+      <input type="hidden" name="priceId" value="price_1K2xqWKcyxmBD8j5Gjd1RyyZ" />
+      <input id="token" type="hidden" name="token" value=""/>
+      <button type="submit">Checkout</button>
+    </form>
+    <script type="text/javascript">
+      document.getElementById("token").value = window.localStorage.getItem('__token__');
+    </script>
+  </body>
+</html>

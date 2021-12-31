@@ -11,6 +11,10 @@
     <script src="<%= root %>/<%= filename %>"></script>
     <script>
       let token = window.localStorage.getItem('__token__');
+      let indianPricing = "<%= priceIds.indiaAnnual %>";
+
+      let globalPricing = "<%= priceIds.globalAnnual %>";
+
       var app = Elm.Main.init({
         node: document.getElementById("elm-app-is-loaded-here"),
         flags: token
@@ -47,6 +51,18 @@
       app.ports.setToggledPostIds.subscribe(function(postId) {
         settingsIconId = `settingsIcon${postId}`;
         postMenuId = `postMenu${postId}`;
+      });
+
+      app.ports.makePayment.subscribe(function(country) {
+        document.body.innerHTML += ` 
+          <form id="payment" action="/api/create-checkout-session" method="POST">
+            <!-- Note: If using PHP set the action to /create-checkout-session.php -->
+
+            <input type="hidden" name="priceId" value=${ country===1 ? indianPricing : globalPricing }>
+            <input id="token" type="hidden" name="token" value="${token}">
+          </form>
+        `
+        document.getElementById("payment").submit();
       });
 
       document.addEventListener('click', function(event) {

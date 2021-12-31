@@ -8,6 +8,8 @@ then
     echo ENV=staging >> .env
     sleep 30s
     echo BUNDLE_NAME=$(aws s3api list-objects-v2  --bucket "sociomata-staging-static" --prefix "js/elm" --query Contents[0].Key) >> .env
+    echo INDIA_PRICEID=price_1K2xqWKcyxmBD8j5Gjd1RyyZ
+    echo GLOBAL_PRICEID=price_1K7eMoKcyxmBD8j5LUt046h7
     echo "Environment variables added successfully"
 else
     echo ENV=prod >> .env
