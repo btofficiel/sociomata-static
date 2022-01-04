@@ -53,6 +53,11 @@
         postMenuId = `postMenu${postId}`;
       });
 
+      app.ports.setToggledDraftIds.subscribe(function(postId) {
+        settingsIconId = `settingsIcon${postId}`;
+        postMenuId = `postMenu${postId}`;
+      });
+
       app.ports.makePayment.subscribe(function(country) {
         document.body.innerHTML += ` 
           <form id="payment" action="/api/create-checkout-session" method="POST">
@@ -90,6 +95,7 @@
             if (isClickInsideMenu === false) {
                 if(isClickInsideIcon === false) {
                   app.ports.turnOffPostMenu.send(null);
+                  app.ports.turnOffDraftMenu.send(null);
                   postMenuId = "";
                   iconElement = "";
                 }
