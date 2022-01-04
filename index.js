@@ -103,20 +103,6 @@ const init = async () => {
     },
     {
         method: 'GET',
-        path: '/success',
-        handler: async (request, h) => {
-            return h.response({status: "Success"});
-        }
-    },
-    {
-        method: 'GET',
-        path: '/error',
-        handler: async (request, h) => {
-            return h.response({status: "Fail"});
-        }
-    },
-    {
-        method: 'GET',
         path: '/signup',
         handler: (request, h) => {
             return h.view('signup'); 
