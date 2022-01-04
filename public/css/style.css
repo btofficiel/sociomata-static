@@ -313,7 +313,7 @@ input[type=datetime-local] {
 
 .buttons {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   margin-top: 1.5rem;
   grid-gap: 0.5rem;
 }
