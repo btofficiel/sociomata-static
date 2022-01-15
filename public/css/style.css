@@ -214,6 +214,7 @@ textarea::nth-letter(3) {
 
 .writer-options .option-name-value {
   display: grid;
+  grid-row-gap: 0.5rem;
   grid-template-columns: 2fr 3fr;
 }
 
@@ -232,6 +233,40 @@ input[type=datetime-local] {
   border: 1px solid black;
   outline: none;
 }
+
+div.select-plug {
+  position: relative;
+  width: inherit;
+  cursor: pointer;
+}
+
+div.select-plug > span:nth-of-type(1) {
+  display: block;
+  text-align: center;
+  font-size: 0.9rem;
+  width: inherit;
+  border-radius: 0.25rem;
+  background-color: white;
+  padding: 0.1rem;
+  border: 1px solid black;
+  outline: none;
+}
+
+span.plug-options {
+  position: absolute;
+  z-index: 7;
+  display: block;
+  width: calc(100% - 0.5rem);
+  border-radius: 0.25rem;
+  background-color: #fdffc2;
+  border: 2px solid #0f0f0f;
+  outline: none;
+  top: 25px;
+  box-shadow: 0 1rem 2rem 0 rgba(0,0,0,0.5);
+  right: 0;
+  
+}
+
 /** Progress Bar **/
 .progress-bar {
   height: 4px;
@@ -963,7 +998,7 @@ span.payment:hover {
   z-index: 6;
 }
 
-.post-menu li {
+.post-menu li, .plug-options li {
   font-weight: 500;
 }
 

@@ -104,6 +104,22 @@
 
       });
 
+      document.addEventListener('click', function(event) {
+          var postElement = document.getElementById("selectPlugOptions");
+          var iconElement = document.getElementById("selectPlug");
+
+          if(postElement && iconElement) {
+            var isClickInsideMenu = (postElement.contains(event.target) && event.target != postElement); 
+            var isClickInsideIcon = iconElement.contains(event.target);
+
+            if (isClickInsideMenu === false) {
+                if(isClickInsideIcon === false) {
+                  app.ports.turnOffCPSelectPlug.send(null);
+                }
+            }
+          }
+
+      });
     </script>
   </body>
 </html>
