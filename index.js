@@ -103,6 +103,13 @@ const init = async () => {
     },
     {
         method: 'GET',
+        path: '/privacy',
+        handler: async (request, h) => {
+            return h.view('privacy');
+        }
+    },
+    {
+        method: 'GET',
         path: '/signup',
         handler: (request, h) => {
             return h.view('signup'); 
