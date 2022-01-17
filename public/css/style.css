@@ -227,7 +227,7 @@ input[type=datetime-local] {
   font-weight: 400;
 }
 
-.writer-options input[type=datetime-local] {
+.writer-options input {
   border-radius: 0.25rem;
   padding: 0.1rem;
   border: 1px solid black;
@@ -784,37 +784,38 @@ ul {
     cursor: pointer;
 }
 
-.plugs > ul > li.plug {
+ul > li.plug {
     display: grid;
+    position: relative;
     align-items: center;
     grid-gap: 10px;
-    grid-template-columns: auto max-content minmax(max-content, 1fr);
+    grid-template-columns: auto max-content minmax(max-content, 1fr) auto;
     cursor: pointer;
 }
 
-.plugs > ul > li.plug:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-}
-
-.plugs > ul > li.plug:hover > .content {
+ul > li.plug:hover > .content, li.inqueue:hover > .content {
     color: #0f0f0f;
+    font-weight: 500;
 }
 
 .plug > .content {
     font-size: 0.9rem;
     font-family: 'Work Sans', sans-serif;
     font-weight: 500;
-    grid-column: 4/5;
+    grid-column: 3/4;
 }
 
 .plug > .plug-name {
-    padding: 2px;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
     font-size: 0.95rem;
     border-radius: 5px;
     background-color: #ececec;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Work Sans', sans-serif;
     text-align: center;
-    font-weight: 700;
+    font-weight: 600;
     color: #0f0f0f;
 }
 
@@ -952,12 +953,12 @@ span.payment:hover {
     grid-template-columns: auto auto 1fr auto auto;
 }
 
-.inqueue > .settings-icon {
+.inqueue > .settings-icon, li.plug > .settings-icon {
   width: 1.6rem;
   cursor: pointer;
 }
 
-.inqueue > .post-menu {
+.inqueue > .post-menu, li.plug > .post-menu {
   display: none;
   position: absolute;
   z-index: 2;

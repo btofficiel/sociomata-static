@@ -58,6 +58,11 @@
         postMenuId = `postMenu${postId}`;
       });
 
+      app.ports.setToggledPlugIds.subscribe(function(postId) {
+        settingsIconId = `settingsIcon${postId}`;
+        postMenuId = `postMenu${postId}`;
+      });
+
       app.ports.makePayment.subscribe(function(country) {
         document.body.innerHTML += ` 
           <form id="payment" action="/api/create-checkout-session" method="POST">
@@ -96,6 +101,7 @@
                 if(isClickInsideIcon === false) {
                   app.ports.turnOffPostMenu.send(null);
                   app.ports.turnOffDraftMenu.send(null);
+                  app.ports.turnOffPlugMenu.send(null);
                   postMenuId = "";
                   iconElement = "";
                 }
@@ -115,6 +121,8 @@
             if (isClickInsideMenu === false) {
                 if(isClickInsideIcon === false) {
                   app.ports.turnOffCPSelectPlug.send(null);
+                  app.ports.turnOffEPSelectPlug.send(null);
+                  app.ports.turnOffEDSelectPlug.send(null);
                 }
             }
           }
