@@ -103,6 +103,27 @@ const init = async () => {
     },
     {
         method: 'GET',
+        path: '/how-it-works',
+        handler: async (request, h) => {
+            return h.view('features');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/pricing',
+        handler: async (request, h) => {
+            return h.view('pricing');
+        }
+    },
+    {
+        method: 'GET',
+        path: '/about',
+        handler: async (request, h) => {
+            return h.view('about');
+        }
+    },
+    {
+        method: 'GET',
         path: '/privacy',
         handler: async (request, h) => {
             return h.view('privacy');
