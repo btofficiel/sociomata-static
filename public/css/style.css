@@ -18,7 +18,7 @@ body {
     grid-template-columns: 65fr 35fr;
 }
 
-.writer div.editor {
+.writer div.editor, div.editor {
     background-color: #f9f9f9;
     position: relative;
     padding: 0.5rem;
@@ -220,6 +220,7 @@ textarea::nth-letter(3) {
 
 input[type=datetime-local] {
   font-family: 'Work Sans', sans-serif;
+  font-size: 0.9rem;
 }
 
 
@@ -492,7 +493,7 @@ span.plug-options {
   grid-template-rows: max-content;
 }
 
-.payment-settings > div.heading {
+.payment-settings > div.heading, .team-settings > div.heading, .billing-settings  {
   font-weight: 600;
 }
 
@@ -945,6 +946,50 @@ span.payment:hover {
     cursor: pointer;
 }
 
+.billing-plan {
+    width: inherit;
+    margin-bottom: 0.66rem;
+    border-radius: 0.33rem;
+    background-color: white;
+    color: #0f0f0f;
+    border: 2px solid #0f0f0f;
+    display:grid;
+    grid-gap: 2rem;
+    align-items: center;
+    grid-template-columns: auto auto 1fr auto;
+    font-size: 1rem;
+    padding: 0.33rem 0.66rem 0.33rem 0.66rem;
+}
+
+.billing-settings > ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.billing-plan > span:nth-of-type(1) {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 600;
+    color: #0f0f0f;
+}
+
+.billing-plan > span:nth-of-type(2) {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    color: #767474;
+}
+
+.billing-plan > span:nth-of-type(3)  {
+  margin: 0;
+  grid-column: 4/5;
+}
+
+.billing-plan > span.active {
+  text-align: center;
+  font-family: 'Work Sans', sans-serif;
+  color: green;
+}
+
 .queue {
     background-color: #fdffc2;
     margin-bottom: 20px;
@@ -957,7 +1002,7 @@ span.payment:hover {
     list-style-type: none;
 }
 
-.day > ul > li, .plugs > ul > li {
+.day > ul > li, .plugs > ul > li, .social-account-settings > ul > li.plug {
     width: inherit;
     margin-bottom: 0.66rem;
     border-radius: 0.33rem;
@@ -965,6 +1010,12 @@ span.payment:hover {
     color: #0f0f0f;
     border: 2px solid #0f0f0f;
     padding: 0.33rem 0.66rem 0.33rem 0.66rem;
+}
+
+.social-account-settings > ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 1rem;
 }
 
 .inqueue {
@@ -1221,10 +1272,35 @@ span.payment:hover {
   margin-top: 1.5rem;
 }
 
+.team-settings {
+  display: grid;
+  grid-column-gap: 4rem; 
+  grid-template-columns: 3fr 2fr;
+}
+
+.billing-settings {
+  display: grid;
+  grid-column-gap: 4rem; 
+  grid-template-columns: 5fr 2fr;
+}
+
 .profile-settings {
   display: grid;
   grid-column-gap: 1rem; 
   grid-template-columns: 3fr 1fr;
+}
+
+.profile-settings > div:nth-of-type(1) {
+  display: grid;
+  align-items: center;
+  font-size: 0.9rem;
+  font-family: 'Work Sans', sans-serif;
+  grid-template-columns: 2fr 5fr;
+  grid-row-gap: 1rem;
+}
+
+.profile-settings > div:nth-of-type(1) > span {
+  font-weight: 600;
 }
 
 .profile-settings > div:nth-of-type(1) {
@@ -1248,6 +1324,10 @@ span.payment:hover {
   border-radius: 0.25rem;
 }
 
+.profile-settings input, .profile-settings select {
+  font-size: 0.9rem;
+}
+
 .profile-settings > div:nth-of-type(1) > select {
   font-family: 'Work Sans', sans-serif;
   background-color:white;
@@ -1262,6 +1342,7 @@ span.payment:hover {
   height: 1.75rem;
   cursor: pointer;
   font-weight: 700;
+  font-size: 0.9rem;
   font-family: 'Quicksand', sans-serif;
   outline: none;
   border: none;
@@ -1322,6 +1403,84 @@ span.payment:hover {
   border-radius: 0.25rem;
   object-position: 50% 50%;
   object-fit: cover;
+}
+
+.social-account-settings {
+  display: grid;
+  grid-template-columns: 1fr;
+}
+
+.add-account {
+  display: grid;
+  align-items: center;
+  height: 1.5rem;
+  padding: 0;
+  margin: 0;
+  grid-template-columns: auto 1fr auto;
+}
+
+span.social-header {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.add-account > span.heading {
+  font-weight: 600;
+}
+
+.add-account > .twitter-counter {
+  grid-column: 3/4;
+}
+
+div.platforms {
+  display: grid;
+  grid-gap: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(14rem, 14rem));
+}
+
+div.platform > span.soon > button, span.soon > button:hover {
+  border-color: #767474 !important;
+  color: #0f0f0f !important;
+  box-shadow: none !important;
+  background: #767474 !important;
+}
+
+div.platform {
+  display: flex;
+  gap: 0.1rem;
+  padding: 1rem;
+  border-radius: 0.33rem;
+  background-color: white;
+  color: #0f0f0f;
+  border: 2px solid #0f0f0f;
+  font-family: 'Work Sans', sans-serif;
+  align-items: center;
+  border: 2px solid #0f0f0f;
+  flex-direction: column;
+}
+
+div.platform > .social-logo {
+  height: 2rem;
+}
+
+div.platform > span.platform-name {
+  margin-top: 0.5rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+div.platform > span.platform-account {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #767474;
+}
+
+div.platform > span.button {
+  margin-top: 1rem;
+  width: 60%;
 }
 
 @media only screen and (min-width: 1921px) {

@@ -136,7 +136,13 @@ const init = async () => {
             return h.view('signup'); 
         }
     },
-
+    {
+        method: 'GET',
+        path: '/join',
+        handler: (request, h) => {
+            return h.view('join_team'); 
+        }
+    }
     ]);
 
     await server.start();

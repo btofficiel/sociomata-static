@@ -63,12 +63,30 @@
         postMenuId = `postMenu${postId}`;
       });
 
+
+      app.ports.setToggledSocialIds.subscribe(function(postId) {
+        settingsIconId = `settingsIcon${postId}`;
+        postMenuId = `postMenu${postId}`;
+      });
+
       app.ports.makePayment.subscribe(function(country) {
         document.body.innerHTML += ` 
           <form id="payment" action="/api/create-checkout-session" method="POST">
             <!-- Note: If using PHP set the action to /create-checkout-session.php -->
 
             <input type="hidden" name="priceId" value=${ country===1 ? indianPricing : globalPricing }>
+            <input id="token" type="hidden" name="token" value="${token}">
+          </form>
+        `
+        document.getElementById("payment").submit();
+      });
+
+      app.ports.switchPlan.subscribe(function(priceId) {
+        document.body.innerHTML += ` 
+          <form id="payment" action="/api/create-checkout-session" method="POST">
+            <!-- Note: If using PHP set the action to /create-checkout-session.php -->
+
+            <input type="hidden" name="priceId" value=${priceId}>
             <input id="token" type="hidden" name="token" value="${token}">
           </form>
         `
@@ -102,6 +120,7 @@
                   app.ports.turnOffPostMenu.send(null);
                   app.ports.turnOffDraftMenu.send(null);
                   app.ports.turnOffPlugMenu.send(null);
+                  app.ports.turnOffSocialMenu.send(null);
                   postMenuId = "";
                   iconElement = "";
                 }
@@ -123,6 +142,25 @@
                   app.ports.turnOffCPSelectPlug.send(null);
                   app.ports.turnOffEPSelectPlug.send(null);
                   app.ports.turnOffEDSelectPlug.send(null);
+                }
+            }
+          }
+
+      });
+
+      document.addEventListener('click', function(event) {
+          var postElement = document.getElementById("selectSocialOptions");
+          var iconElement = document.getElementById("selectSocial");
+
+          if(postElement && iconElement) {
+            var isClickInsideMenu = (postElement.contains(event.target) && event.target != postElement); 
+            var isClickInsideIcon = iconElement.contains(event.target);
+
+            if (isClickInsideMenu === false) {
+                if(isClickInsideIcon === false) {
+                  app.ports.turnOffCPSelectSocial.send(null);
+                  app.ports.turnOffEPSelectSocial.send(null);
+                  app.ports.turnOffEDSelectSocial.send(null);
                 }
             }
           }
