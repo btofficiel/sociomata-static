@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap');
 
 
@@ -7,7 +8,7 @@ html {
 }
 
 body {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Sora', sans-serif;
     margin: 0;
 }
 
@@ -218,7 +219,7 @@ textarea::nth-letter(3) {
   grid-template-columns: 2fr 3fr;
 }
 
-input[type=datetime-local] {
+input[type=datetime-local], input.schedule-time {
   font-family: 'Work Sans', sans-serif;
   font-size: 0.9rem;
 }
@@ -235,11 +236,33 @@ input[type=datetime-local] {
   outline: none;
 }
 
+div.post-settings-type {
+  display: grid;
+  grid-gap: 0.5rem;
+  grid-template-columns: 1fr 1fr;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+div.post-settings-type > span {
+  padding: 0.5rem;
+  box-shadow: 0 0.25rem 0 0 #0f0f0f;
+  opacity: 0.5;
+}
+
+div.post-settings-type > span.active, div.post-settings-type > span:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+  
+
 div.select-plug {
   position: relative;
   width: inherit;
   cursor: pointer;
 }
+
 
 div.select-plug > span:nth-of-type(1) {
   display: block;
@@ -251,6 +274,42 @@ div.select-plug > span:nth-of-type(1) {
   padding: 0.1rem;
   border: 1px solid black;
   outline: none;
+}
+
+div.auto-plug {
+  display: grid;;
+  width: inherit;
+  text-align: center;
+  font-size: 0.9rem;
+  border-radius: 0.25rem;
+  background-color: white;
+  border: 1px solid black;
+  outline: none;
+  padding: 0;
+  grid-template-columns: 1fr auto;
+}
+
+div.auto-plug > select {
+  width: 100%;
+  padding: 0.1rem;
+  grid-column: 1/2;
+  font-size: 0.9rem;
+  background-color: white;
+  font-family: 'Work Sans', sans-serif;
+  border: none;
+  outline: none;
+}
+
+div.auto-plug > input {
+  width: 4rem;
+  padding: 0.1rem;
+  padding-right: 0.5rem;
+  border: none;
+  background-color: rgba(128,128,128, 0.15);
+  text-align: right;
+  outline: none;
+  font-family: 'Work Sans', sans-serif;
+  font-size: 0.9rem;
 }
 
 span.plug-options {
@@ -362,8 +421,8 @@ span.plug-options {
 }
 
 .buttons > button, .button > button {
-    font-family: 'Quicksand', sans-serif;
-    font-weight: 700;
+    font-family: 'Sora', sans-serif;
+    font-weight: 600;
     font-size: 0.9rem;
     padding: 0.25rem;
     padding-bottom: 0.35rem;
@@ -470,7 +529,7 @@ span.plug-options {
 }
 
 .loading-container > span {
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Sora', sans-serif;
   font-weight: 700;
   font-size: 6rem;
   z-index: 4;
@@ -583,7 +642,7 @@ div.plan {
     grid-gap: 20px;
     grid-template-columns: auto auto auto auto;
     list-style-type: none;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 ul {
@@ -690,13 +749,13 @@ ul {
 }
 
 .subheader > span:nth-of-type(1) {
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1.56rem;
 }
 
 .subheader > span:nth-of-type(2) {
     font-weight: 600;
-    font-size: 1rem;
+    font-size: 0.9rem;
     padding: 10px;
     background: black;
     color: white;
@@ -929,7 +988,7 @@ ul > li.plug:hover > .content, li.inqueue:hover > .content {
 span.payment {
     display: flex;
     width: inherit;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Sora', sans-serif;
     justify-content: center;
     font-weight: 600;
     font-size: 1rem;
@@ -1099,7 +1158,7 @@ span.payment:hover {
 
 .add-to-queue > span:nth-of-type(1), .add-plug >  span:nth-of-type(1) {
     color: #8a8a8a;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 1rem;
 }
 
@@ -1244,8 +1303,8 @@ span.payment:hover {
 .account-settings > button,  button.load-more {
   height: 1.75rem;
   cursor: pointer;
-  font-weight: 700;
-  font-family: 'Quicksand', sans-serif;
+  font-weight: 600;
+  font-family: 'Sora', sans-serif;
   outline: none;
   border: none;
   color: white;
@@ -1341,9 +1400,9 @@ span.payment:hover {
 .profile-settings > div:nth-of-type(1) > button, .disconnection-btns > button {
   height: 1.75rem;
   cursor: pointer;
-  font-weight: 700;
+  font-weight: 600;
   font-size: 0.9rem;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Sora', sans-serif;
   outline: none;
   border: none;
   color: white;
@@ -1384,7 +1443,7 @@ span.payment:hover {
   text-align: center;
   font-size: 0.9rem;
   font-weight: 600;
-  font-family: 'Quicksand', sans-serif;
+  font-family: 'Sora', sans-serif;
   z-index: 3;
   height: 1.5rem;
   border-radius: 0 0 0.25rem 0.25rem;
@@ -1420,7 +1479,7 @@ span.payment:hover {
 }
 
 span.social-header {
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Sora', sans-serif;
     font-weight: 700;
     font-size: 1.25rem;
 }
